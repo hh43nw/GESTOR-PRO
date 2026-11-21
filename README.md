@@ -13,7 +13,7 @@
 ### 1.1 Alcance del sistema
 Para este proyecto vamos a construir una aplicación de escritorio en Java enfocada en organizar tareas personales o de un equipo pequeño, permitiendo usar tanto una interfaz por consola como una ventana gráfica sencilla sobre la misma lógica de negocio.
 
-**Funcionalidades que se van a implementar:**
+#### **Funcionalidades que se van a implementar:**
 - **Tareas simples y tareas compuestas:** Posibilidad de crear tareas individuales o tareas padre (proyectos/módulos) que agrupen varias subtareas.
 - **Control de estados y transiciones:** Manejo de los estados *Pendiente*, *En curso*, *En revisión* y *Terminada*, validando qué cambios de estado son válidos y cuáles no.
 - **Deshacer y rehacer acciones (Undo / Redo):** Historial en memoria para revertir o volver a aplicar acciones recientes como crear una tarea, editarla, cambiarle el estado o eliminarla.
@@ -23,23 +23,24 @@ Para este proyecto vamos a construir una aplicación de escritorio en Java enfoc
 **Funcionalidades que quedan por fuera (y por qué):**
 - **Plantillas para proyectos recurrentes:** Se dejan por fuera para mantener el alcance realista frente al tiempo de entrega y concentrarnos en que los patrones principales queden bien implementados y con buenas pruebas unitarias.
 - **Envío de notificaciones externas (correo o SMS):** No se incluyen porque el sistema funciona de manera local en Java estándar y agregar servidores de correo complicaría la ejecución sin aportar a los patrones centrales del parcial.
-- 
 
 ---
 
 ### 1.2. Requisitos del Sistema
 
 #### Requisitos Funcionales (RF)
-- **RF01 - [Nombre]:** [Descripción]
-- **RF02 - [Nombre]:** [Descripción]
-- **RF03 - [Nombre]:** [Descripción]
-- **RF04 - [Nombre]:** [Descripción]
-- **RF05 - [Nombre]:** [Descripción]
+- **RF01 - [Tareas]:** El sistema debe permitir crear tareas simples y tareas compuestas (que contienen otras tareas). 
+- **RF02 - [Atributos]:** El sistema debe permitir asignar a cada tarea atributos básicos: título, descripción, responsable, fecha límite y nivel de prioridad.  
+- **RF03 - [Estados]:** El sistema debe permitir cambiar el estado de una tarea (Pendiente, En curso, En revisión, Terminada) respetando reglas lógicas (ej. no se puede pasar a "Terminada" si está "Pendiente" sin pasar por "En curso"). 
+- **RF04 - [Actualización del Estado]:** El sistema debe actualizar automáticamente el estado de una tarea compuesta si todas sus subtareas son marcadas como "Terminadas". 
+- **RF05 - [Filtrado y Visualización]:** El sistema debe permitir visualizar la lista de tareas ordenadas y filtradas según el criterio que elija el usuario (por prioridad, por fecha límite o por responsable).
 
 #### Requisitos No Funcionales (RNF)
-- **RNF01 - [Nombre]:** [Descripción]
-- **RNF02 - [Nombre]:** [Descripción]
-- **RNF03 - [Nombre]:** [Descripción]
+- **RNF01 - [Lenguaje]:** El sistema debe estar desarrollado en Java. 
+- **RNF02 - [Arquitectura dual]:** La lógica de negocio debe estar totalmente separada de las vistas. El sistema debe poder ejecutarse tanto por consola como mediante una interfaz gráfica sencilla usando exactamente el mismo núcleo (core). 
+- **RNF03 - [Extensibilidad]:** El código debe aplicar principios SOLID y patrones de diseño (creacionales, estructurales y/o de comportamiento) para resolver problemas de flexibilidad. 
+- **RNF04 - [Trabajo colaborativo]:** El proyecto se gestionará en un repositorio Git, donde debe quedar el historial de commits reflejando el trabajo equitativo de los dos integrantes. 
+- **RNF05 - [Calidad]:** Las clases críticas donde se apliquen los patrones de diseño deben contar con pruebas unitarias que garanticen su correcto funcionamiento.
 
 ---
 
